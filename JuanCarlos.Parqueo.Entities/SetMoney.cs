@@ -11,6 +11,6 @@ namespace JuanCarlos.Parqueo.Entities
         public int FirstHour { get; set; }
         public int AdditionalHour { get; set; }
 
-        public Parking parking { get; set; }
+        public virtual CarPark CarPark { get; set; }
     }
 }

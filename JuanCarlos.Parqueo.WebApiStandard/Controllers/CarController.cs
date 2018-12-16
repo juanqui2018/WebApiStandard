@@ -39,17 +39,17 @@ namespace JuanCarlos.Parqueo.WebApiStandard.Controllers
 
         // POST api/car
         /// <param name="value"></param>
-        //public Car PostCar(Car car)
-        //{
-        //    if (car != null)
-        //    {
-        //        return CarManager.StoreCar(Car);
-        //    }
-        //    else
-        //    {
-        //        throw new HttpResponseException(HttpStatusCode.BadRequest);
-        //    }
-        //}
+        public Car PostCar(Car car)
+        {
+            if (car != null)
+            {
+                return CarManager.StoreCar(car);
+            }
+            else
+            {
+                throw new HttpResponseException(HttpStatusCode.BadRequest);
+            }
+        }
 
 
         // PUT api/car/5
@@ -57,7 +57,8 @@ namespace JuanCarlos.Parqueo.WebApiStandard.Controllers
         /// <param name="value"></param>
         public Car Put(int id, [FromBody]Car carUpdate)
         {
-            Car car = CarManager.GetById(id);
+             Car car = CarManager.GetById(id);
+            
             if (car != null)
             {
                 try

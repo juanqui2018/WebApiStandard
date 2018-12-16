@@ -35,7 +35,7 @@ namespace JuanCarlos.Parqueo.EFContext
 
                     setMoneyUpdate.FirstHour = setMoneyUpdate.FirstHour;
                     setMoneyUpdate.AdditionalHour = setMoneyUpdate.AdditionalHour;
-                    setMoneyUpdate.parking = setMoneyUpdate.parking;
+                   // setMoneyUpdate.parking = setMoneyUpdate.parking;
                 }
                 context.SaveChanges();
             }

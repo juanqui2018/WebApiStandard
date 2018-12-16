@@ -68,7 +68,8 @@ namespace JuanCarlos.Parqueo.EFContext
             List<Car> cars;
             using (var context = new ParqueoContext())
             {
-                cars = context.Cars.Where(x => x.CreatedOn != null).ToList();
+                //cars = context.Cars.Where(x => x.CreatedOn != null).ToList();
+                cars = context.Cars.ToList();
             }
             return cars;
         }
