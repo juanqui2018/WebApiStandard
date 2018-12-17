@@ -11,7 +11,7 @@ Solucion JuanCarlos.PARQUEO
   - Se uso WebAPI standard
   - Para el resto de los proyectos se uso Biblioteca de clases .Net Standard
 
-* Contiene 5 soluciones:
+* Contiene 5 proyectos:
   - Entities, contiene los objetos puros y es transversal a l resto de las soluciones
   - Contracts, continen los contratos para cada objeto (crud)
   - EFContext, contine el contexto de Entity Framework (code first)
