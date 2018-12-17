@@ -1,0 +1,21 @@
+
+
+Solucion JuanCarlos.PARQUEO
+===========================
+* - actualizar la cadena de conexion "WebApiStandard -> Web.config"
+  - establecer como proyecto de inicio "JuanCarlos.Parqueo.WebApiStandaard"
+  - correr la Solucion 
+
+* Se uso .Net Standart, Visual Studio 2017 
+  - Se uso Entity Framework code-first, SQLserver para la persistencia de datos.
+  - Se uso WebAPI standard
+  - Para el resto de los proyectos se uso Biblioteca de clases .Net Standard
+
+* Contiene 5 soluciones:
+  - Entities, contiene los objetos puros y es transversal a l resto de las soluciones
+  - Contracts, continen los contratos para cada objeto (crud)
+  - EFContext, contine el contexto de Entity Framework (code first)
+  - Biz, contine los manager uno por objeto y enlaza al resto de las capas con
+         la capa "WebApiStandard"
+  - WebApiStandard, contiene la structura WebApi, se comunica con el UI, 
+         en su "Web.config" esta la cadena de conexion.
