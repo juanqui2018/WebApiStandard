@@ -23,6 +23,7 @@ namespace JuanCarlos.Parqueo.Biz
                 if (client.Id == 0)
                 {
                     client.CreatedOn = DateTime.Now;
+                    client.Status = "active";
                     _clientDao.Create(client);
                 }
                 else
@@ -43,7 +44,9 @@ namespace JuanCarlos.Parqueo.Biz
         public bool DeleteClient(int id)
         {
             var client = _clientDao.GetForId(id);
-            _clientDao.Delete(client);
+            //_clientDao.Delete(client);
+            client.Status = "unactive";
+            _clientDao.Update(client);
 
             return true;
         }

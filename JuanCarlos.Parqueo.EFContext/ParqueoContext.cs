@@ -65,7 +65,6 @@ namespace JuanCarlos.Parqueo.EFContext
                         CodeName = (i+1).ToString(),
                         Free = true
                     });
-
                 }
                 foreach (Parking student in parkings)
                     context.Parkings.Add(student);

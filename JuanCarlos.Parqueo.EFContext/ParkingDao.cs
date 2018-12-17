@@ -42,12 +42,12 @@ namespace JuanCarlos.Parqueo.EFContext
 
         public void Delete(Parking parking)
         {
-            using (var context = new ParqueoContext())
-            {
-                var parkingDelete = context.Parkings.SingleOrDefault(x => x.Id == parking.Id);
-                context.Parkings.Remove(parkingDelete);
-                context.SaveChanges();
-            }
+            //using (var context = new ParqueoContext())
+            //{
+            //    var parkingDelete = context.Parkings.SingleOrDefault(x => x.Id == parking.Id);
+            //    context.Parkings.Remove(parkingDelete);
+            //    context.SaveChanges();
+            //}
         }
 
         public Parking GetForId(int id)
@@ -65,7 +65,7 @@ namespace JuanCarlos.Parqueo.EFContext
             List<Parking> parkings;
             using (var context = new ParqueoContext())
             {
-                parkings = context.Parkings.Where(x => x.CreatedOn != null).ToList();
+                parkings = context.Parkings.Where(x => x.Status != "unactive").ToList();
             }
             return parkings;
         }

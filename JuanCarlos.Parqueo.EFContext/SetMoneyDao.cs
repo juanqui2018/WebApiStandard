@@ -35,7 +35,6 @@ namespace JuanCarlos.Parqueo.EFContext
 
                     setMoneyUpdate.FirstHour = setMoneyUpdate.FirstHour;
                     setMoneyUpdate.AdditionalHour = setMoneyUpdate.AdditionalHour;
-                   // setMoneyUpdate.parking = setMoneyUpdate.parking;
                 }
                 context.SaveChanges();
             }
@@ -43,12 +42,12 @@ namespace JuanCarlos.Parqueo.EFContext
 
         public void Delete(SetMoney setMoney)
         {
-            using (var context = new ParqueoContext())
-            {
-                var setMoneyDelete = context.SetMoneys.SingleOrDefault(x => x.Id == setMoney.Id);
-                context.SetMoneys.Remove(setMoneyDelete);
-                context.SaveChanges();
-            }
+            //using (var context = new ParqueoContext())
+            //{
+            //    var setMoneyDelete = context.SetMoneys.SingleOrDefault(x => x.Id == setMoney.Id);
+            //    context.SetMoneys.Remove(setMoneyDelete);
+            //    context.SaveChanges();
+            //}
         }
 
         public SetMoney GetForId(int id)
@@ -66,7 +65,7 @@ namespace JuanCarlos.Parqueo.EFContext
             List<SetMoney> setMoneys;
             using (var context = new ParqueoContext())
             {
-                setMoneys = context.SetMoneys.Where(x => x.CreatedOn != null).ToList();
+                setMoneys = context.SetMoneys.Where(x => x.Status != "unactive").ToList();
             }
             return setMoneys;
         }

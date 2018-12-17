@@ -5,7 +5,6 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using Ninject;
-//using Ninject.IIKernel;
 using JuanCarlos.Parqueo.WebApiStandard.Infraestructure;
 using JuanCarlos.Parqueo.Biz;
 
@@ -16,7 +15,10 @@ namespace JuanCarlos.Parqueo.WebApiStandard.Controllers
         private static IKernel kernel = new StandardKernel(new Infraestructure.DependencyResolver());
 
         protected CarManager CarManager = kernel.Get<CarManager>();
-        //protected EventManager EventManager = kernel.Get<EventManager>();
-        //protected UnitEducativeManager UnitEducativeManager = kernel.Get<UnitEducativeManager>();
+        protected CarParkManager CarParkManager = kernel.Get<CarParkManager>();
+        protected ClientManager ClientManager = kernel.Get<ClientManager>();
+        protected InputOutputCarManager InputOutputCarManager = kernel.Get<InputOutputCarManager>();
+        protected ParkingManager ParkingManager = kernel.Get<ParkingManager>();
+        protected SetMoneyManager SetMoneyManager = kernel.Get<SetMoneyManager>();
     }
 }

@@ -9,21 +9,21 @@ using System.Web.Mvc;
 
 namespace JuanCarlos.Parqueo.WebApiStandard.Controllers
 {
-    public class CarController : BaseApiController
+    public class ParkingController : BaseApiController
     {
-        // GET api/car
-        public IEnumerable<Car> GetAllCars()
+        // GET: Parking
+        public IEnumerable<Parking> GetAllParkings()
         {
-            return CarManager.GetAllCars();
+            return ParkingManager.GetAllParkings();
         }
 
-        // GET api/car/5
-        public Car GetCar(int id)
+        // GET api/Parking/5
+        public Parking GetParking(int id)
         {
-            Car car = CarManager.GetById(id);
-            if (car != null)
+            Parking parking = ParkingManager.GetById(id);
+            if (parking != null)
             {
-                return car;
+                return parking;
             }
             else
             {
@@ -31,13 +31,13 @@ namespace JuanCarlos.Parqueo.WebApiStandard.Controllers
             }
         }
 
-        // POST api/car
+        // POST api/Parking
         /// <param name="value"></param>
-        public Car PostCar(Car car)
+        public Parking PostParking(Parking parking)
         {
-            if (car != null)
+            if (parking != null)
             {
-                return CarManager.StoreCar(car);
+                return ParkingManager.StoreParking(parking);
             }
             else
             {
@@ -46,19 +46,19 @@ namespace JuanCarlos.Parqueo.WebApiStandard.Controllers
         }
 
 
-        // PUT api/car/5
+        // PUT api/Parking/5
         /// <param name="id"></param>
         /// <param name="value"></param>
-        public Car Put(int id, [FromBody]Car carUpdate)
+        public Parking Put(int id, [FromBody]Parking parkingUpdate)
         {
-             Car car = CarManager.GetById(id);
-            
-            if (car != null)
+            Parking parking = ParkingManager.GetById(id);
+
+            if (parking != null)
             {
                 try
                 {
-                    carUpdate.Id = car.Id;
-                    return CarManager.StoreCar(carUpdate);
+                    parkingUpdate.Id = parking.Id;
+                    return ParkingManager.StoreParking(parkingUpdate);
                 }
                 catch (Exception e)
                 {
@@ -71,14 +71,14 @@ namespace JuanCarlos.Parqueo.WebApiStandard.Controllers
             }
         }
 
-        // DELETE api/car/5
+        // DELETE api/Parking/5
         /// <param name="id"></param>
-        public void DeleteCar(int id)
+        public void DeleteParking(int id)
         {
-            Car car = CarManager.GetById(id);
-            if (car != null)
+            Parking parking = ParkingManager.GetById(id);
+            if (parking != null)
             {
-                CarManager.DeleteCar(car.Id);
+                ParkingManager.DeleteParking(parking.Id);
             }
             else
             {

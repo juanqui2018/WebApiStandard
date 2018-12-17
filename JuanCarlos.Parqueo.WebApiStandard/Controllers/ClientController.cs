@@ -9,21 +9,21 @@ using System.Web.Mvc;
 
 namespace JuanCarlos.Parqueo.WebApiStandard.Controllers
 {
-    public class CarController : BaseApiController
+    public class ClientController : BaseApiController
     {
-        // GET api/car
-        public IEnumerable<Car> GetAllCars()
+        // GET: Client
+        public IEnumerable<Client> GetAllCars()
         {
-            return CarManager.GetAllCars();
+            return ClientManager.GetAllClients();
         }
 
-        // GET api/car/5
-        public Car GetCar(int id)
+        // GET api/Client/5
+        public Client GetClient(int id)
         {
-            Car car = CarManager.GetById(id);
-            if (car != null)
+            Client client = ClientManager.GetById(id);
+            if (client != null)
             {
-                return car;
+                return client;
             }
             else
             {
@@ -31,13 +31,13 @@ namespace JuanCarlos.Parqueo.WebApiStandard.Controllers
             }
         }
 
-        // POST api/car
+        // POST api/Client
         /// <param name="value"></param>
-        public Car PostCar(Car car)
+        public Client PostClient(Client client)
         {
-            if (car != null)
+            if (client != null)
             {
-                return CarManager.StoreCar(car);
+                return ClientManager.StoreClient(client);
             }
             else
             {
@@ -46,19 +46,19 @@ namespace JuanCarlos.Parqueo.WebApiStandard.Controllers
         }
 
 
-        // PUT api/car/5
+        // PUT api/client/5
         /// <param name="id"></param>
         /// <param name="value"></param>
-        public Car Put(int id, [FromBody]Car carUpdate)
+        public Client Put(int id, [FromBody]Client clientUpdate)
         {
-             Car car = CarManager.GetById(id);
-            
-            if (car != null)
+            Client client = ClientManager.GetById(id);
+
+            if (client != null)
             {
                 try
                 {
-                    carUpdate.Id = car.Id;
-                    return CarManager.StoreCar(carUpdate);
+                    clientUpdate.Id = client.Id;
+                    return ClientManager.StoreClient(clientUpdate);
                 }
                 catch (Exception e)
                 {
@@ -71,14 +71,14 @@ namespace JuanCarlos.Parqueo.WebApiStandard.Controllers
             }
         }
 
-        // DELETE api/car/5
+        // DELETE api/Client/5
         /// <param name="id"></param>
-        public void DeleteCar(int id)
+        public void DeleteClient(int id)
         {
-            Car car = CarManager.GetById(id);
-            if (car != null)
+            Client client = ClientManager.GetById(id);
+            if (client != null)
             {
-                CarManager.DeleteCar(car.Id);
+                ClientManager.DeleteClient(client.Id);
             }
             else
             {

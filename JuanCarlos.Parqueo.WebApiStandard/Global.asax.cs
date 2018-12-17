@@ -9,7 +9,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using JuanCarlos.Parqueo.WebApiStandard.Models;
 using JuanCarlos.Parqueo.Entities;
-using System.Web;
+
 
 namespace JuanCarlos.Parqueo.WebApiStandard
 {
@@ -27,13 +27,16 @@ namespace JuanCarlos.Parqueo.WebApiStandard
         }
         private void Configure()
         {
-             // Mapper.CreateMap<Car, CarViewModel>().ReverseMap();
-            /*  CreateMap<QueryResult<UserSummary>, UserResultResourceList>()
-               .ForMember(x => x.Items, opts => opts.MapFrom(x => x.Items));
-               */
-           Mapper.Initialize(cfg => cfg.CreateMap<Car, CarViewModel>());
-            //or
-          //  var config = new MapperConfiguration(cfg => cfg.CreateMap<Car, CarViewModel>());
+            var config = new MapperConfiguration(cfg => {
+                cfg.CreateMap<Car, CarViewModel>();
+                cfg.CreateMap<CarPark, CarParkViewModel>();
+                cfg.CreateMap<Client, ClientViewModel>();
+                cfg.CreateMap<InputOutputCar, InputOutputCarViewModel>();
+                cfg.CreateMap<Parking, ParkingViewModel>();
+                cfg.CreateMap<SetMoney, SetMoneyViewModel>();
+            });
+
+            config.CreateMapper();
         }
     }
 }

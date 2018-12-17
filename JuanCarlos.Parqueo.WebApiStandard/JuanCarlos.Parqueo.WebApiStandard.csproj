@@ -199,7 +199,12 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\BaseApiController.cs" />
     <Compile Include="Controllers\CarController.cs" />
+    <Compile Include="Controllers\CarParkController.cs" />
+    <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InputOutputCarController.cs" />
+    <Compile Include="Controllers\ParkingController.cs" />
+    <Compile Include="Controllers\SetMoneyController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -270,7 +275,12 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\BaseApi\" />
+    <Folder Include="Views\CarPark\" />
     <Folder Include="Views\Car\" />
+    <Folder Include="Views\Client\" />
+    <Folder Include="Views\InputOutputCar\" />
+    <Folder Include="Views\Parking\" />
+    <Folder Include="Views\SetMoney\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

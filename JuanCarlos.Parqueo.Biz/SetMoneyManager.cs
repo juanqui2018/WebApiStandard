@@ -23,6 +23,7 @@ namespace JuanCarlos.Parqueo.Biz
                 if (setMoney.Id == 0)
                 {
                     setMoney.CreatedOn = DateTime.Now;
+                    setMoney.Status = "active";
                     _setMoneyDao.Create(setMoney);
                 }
                 else
@@ -43,7 +44,9 @@ namespace JuanCarlos.Parqueo.Biz
         public bool DeleteSetMoney(int id)
         {
             var setMoney = _setMoneyDao.GetForId(id);
-            _setMoneyDao.Delete(setMoney);
+            //_setMoneyDao.Delete(setMoney);
+            setMoney.Status = "unactive";
+            _setMoneyDao.Update(setMoney);
 
             return true;
         }

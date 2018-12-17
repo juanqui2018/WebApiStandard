@@ -42,17 +42,17 @@ namespace JuanCarlos.Parqueo.EFContext
                 context.SaveChanges();
             }
         }
-
+        
         public void Delete(Car car)
-        {
+        {/*
             using (var context = new ParqueoContext())
             {
                 var carDelete = context.Cars.SingleOrDefault(x => x.Id == car.Id);
                 context.Cars.Remove(carDelete);
                 context.SaveChanges();
-            }
+            }*/
         }
-
+        
         public Car GetForId(int id)
         {
             Car car;
@@ -68,8 +68,8 @@ namespace JuanCarlos.Parqueo.EFContext
             List<Car> cars;
             using (var context = new ParqueoContext())
             {
-                //cars = context.Cars.Where(x => x.CreatedOn != null).ToList();
-                cars = context.Cars.ToList();
+                cars = context.Cars.Where(x => x.Status != "unactive").ToList();
+                //cars = context.Cars.ToList();
             }
             return cars;
         }

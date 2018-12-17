@@ -45,12 +45,12 @@ namespace JuanCarlos.Parqueo.EFContext
 
         public void Delete(Client client)
         {
-            using (var context = new ParqueoContext())
-            {
-                var clientDelete = context.Clients.SingleOrDefault(x => x.Id == client.Id);
-                context.Clients.Remove(clientDelete);
-                context.SaveChanges();
-            }
+            //using (var context = new ParqueoContext())
+            //{
+            //    var clientDelete = context.Clients.SingleOrDefault(x => x.Id == client.Id);
+            //    context.Clients.Remove(clientDelete);
+            //    context.SaveChanges();
+            //}
         }
 
         public Client GetForId(int id)
@@ -68,7 +68,7 @@ namespace JuanCarlos.Parqueo.EFContext
             List<Client> clients;
             using (var context = new ParqueoContext())
             {
-                clients = context.Clients.Where(x => x.CreatedOn != null).ToList();
+                clients = context.Clients.Where(x => x.Status != "unactive").ToList();
             }
             return clients;
         }

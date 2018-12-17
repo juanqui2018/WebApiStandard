@@ -24,6 +24,7 @@ namespace JuanCarlos.Parqueo.Biz
                 if (inputOutputCar.Id == 0)
                 {
                     inputOutputCar.CreatedOn = DateTime.Now;
+                    inputOutputCar.Status = "active";
                     _inputOutputCarDao.Create(inputOutputCar);
                 }
                 else
@@ -44,7 +45,9 @@ namespace JuanCarlos.Parqueo.Biz
         public bool DeleteInputOutputCar(int id)
         {
             var inputOutputCar = _inputOutputCarDao.GetForId(id);
-            _inputOutputCarDao.Delete(inputOutputCar);
+            //_inputOutputCarDao.Delete(inputOutputCar);
+            inputOutputCar.Status = "unactive";
+            _inputOutputCarDao.Update(inputOutputCar);
 
             return true;
         }

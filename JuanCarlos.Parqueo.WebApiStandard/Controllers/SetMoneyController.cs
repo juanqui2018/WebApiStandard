@@ -9,21 +9,21 @@ using System.Web.Mvc;
 
 namespace JuanCarlos.Parqueo.WebApiStandard.Controllers
 {
-    public class CarController : BaseApiController
+    public class SetMoneyController : BaseApiController
     {
-        // GET api/car
-        public IEnumerable<Car> GetAllCars()
+        // GET: SetMoney
+        public IEnumerable<SetMoney> GetAllSetMoneys()
         {
-            return CarManager.GetAllCars();
+            return SetMoneyManager.GetAllSetMoneys();
         }
 
-        // GET api/car/5
-        public Car GetCar(int id)
+        // GET api/SetMoney/5
+        public SetMoney GetSetMoney(int id)
         {
-            Car car = CarManager.GetById(id);
-            if (car != null)
+            SetMoney setMoney = SetMoneyManager.GetById(id);
+            if (setMoney != null)
             {
-                return car;
+                return setMoney;
             }
             else
             {
@@ -31,13 +31,13 @@ namespace JuanCarlos.Parqueo.WebApiStandard.Controllers
             }
         }
 
-        // POST api/car
+        // POST api/SetMoney
         /// <param name="value"></param>
-        public Car PostCar(Car car)
+        public SetMoney PostSetMoney(SetMoney setMoney)
         {
-            if (car != null)
+            if (setMoney != null)
             {
-                return CarManager.StoreCar(car);
+                return SetMoneyManager.StoreSetMoney(setMoney);
             }
             else
             {
@@ -46,19 +46,19 @@ namespace JuanCarlos.Parqueo.WebApiStandard.Controllers
         }
 
 
-        // PUT api/car/5
+        // PUT api/SetMoney/5
         /// <param name="id"></param>
         /// <param name="value"></param>
-        public Car Put(int id, [FromBody]Car carUpdate)
+        public SetMoney Put(int id, [FromBody]SetMoney setMoneyUpdate)
         {
-             Car car = CarManager.GetById(id);
-            
-            if (car != null)
+            SetMoney setMoney = SetMoneyManager.GetById(id);
+
+            if (setMoney != null)
             {
                 try
                 {
-                    carUpdate.Id = car.Id;
-                    return CarManager.StoreCar(carUpdate);
+                    setMoneyUpdate.Id = setMoney.Id;
+                    return SetMoneyManager.StoreSetMoney(setMoneyUpdate);
                 }
                 catch (Exception e)
                 {
@@ -71,14 +71,14 @@ namespace JuanCarlos.Parqueo.WebApiStandard.Controllers
             }
         }
 
-        // DELETE api/car/5
+        // DELETE api/setMoney/5
         /// <param name="id"></param>
-        public void DeleteCar(int id)
+        public void DeleteSetMoney(int id)
         {
-            Car car = CarManager.GetById(id);
-            if (car != null)
+            SetMoney setMoney = SetMoneyManager.GetById(id);
+            if (setMoney != null)
             {
-                CarManager.DeleteCar(car.Id);
+                SetMoneyManager.DeleteSetMoney(setMoney.Id);
             }
             else
             {

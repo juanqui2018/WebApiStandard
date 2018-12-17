@@ -9,9 +9,6 @@ namespace JuanCarlos.Parqueo.WebApiStandard
     {
         public static void Register(HttpConfiguration config)
         {
-            // Configuración y servicios de API web
-
-            // Rutas de API web
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(

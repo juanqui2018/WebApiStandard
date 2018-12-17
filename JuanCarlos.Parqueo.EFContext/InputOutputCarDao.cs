@@ -57,12 +57,12 @@ namespace JuanCarlos.Parqueo.EFContext
 
         public void Delete(InputOutputCar inputOutputCar)
         {
-            using (var context = new ParqueoContext())
-            {
-                var inputOutputCarDelete = context.InputOutputCars.SingleOrDefault(x => x.Id == inputOutputCar.Id);
-                context.InputOutputCars.Remove(inputOutputCarDelete);
-                context.SaveChanges();
-            }
+            //using (var context = new ParqueoContext())
+            //{
+            //    var inputOutputCarDelete = context.InputOutputCars.SingleOrDefault(x => x.Id == inputOutputCar.Id);
+            //    context.InputOutputCars.Remove(inputOutputCarDelete);
+            //    context.SaveChanges();
+            //}
         }
 
         public InputOutputCar GetForId(int id)
@@ -80,7 +80,7 @@ namespace JuanCarlos.Parqueo.EFContext
             List<InputOutputCar> inputOutputCars;
             using (var context = new ParqueoContext())
             {
-                inputOutputCars = context.InputOutputCars.Where(x => x.CreatedOn != null).ToList();
+                inputOutputCars = context.InputOutputCars.Where(x => x.Status != "unactive").ToList();
             }
             return inputOutputCars;
         }

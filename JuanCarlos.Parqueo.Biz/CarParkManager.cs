@@ -23,6 +23,7 @@ namespace JuanCarlos.Parqueo.Biz
                 if (carPark.Id == 0)
                 {
                     carPark.CreatedOn = DateTime.Now;
+                    carPark.Status = "active";
                     _carParkDao.Create(carPark);
                 }
                 else
@@ -43,7 +44,9 @@ namespace JuanCarlos.Parqueo.Biz
         public bool DeleteCarPark(int id)
         {
             var carPark = _carParkDao.GetForId(id);
-            _carParkDao.Delete(carPark);
+            //_carParkDao.Delete(carPark);
+            carPark.Status = "unactive";
+            _carParkDao.Update(carPark);
 
             return true;
         }

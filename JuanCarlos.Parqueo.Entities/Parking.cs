@@ -13,8 +13,5 @@ namespace JuanCarlos.Parqueo.Entities
         [StringLength(64)]
         public string CodeName { get; set; } 
         public bool Free { get; set; }
-        //[Required]
-        //[ForeignKey("CarParkId")]
-        //public int CarParkId { get; set; }
     }
 }
